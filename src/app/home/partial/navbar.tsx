@@ -97,7 +97,7 @@ const Navbar = () => {
             </SheetHeader>
 
             {/* NAVIGATION */}
-            <nav className='mt-6'>
+            <nav className='z-100 mt-6'>
               <ul className='flex flex-col gap-4'>
                 {navigationData.map((data) => (
                   <li key={data.label}>

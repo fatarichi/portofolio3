@@ -46,10 +46,10 @@ export default function Hero() {
       </div>
 
       {/* ================= CONTENT ================= */}
-      <div className='relative z-10 flex w-full max-w-[1100px] flex-col items-start justify-between px-6 pt-24 md:flex-row md:items-start md:pt-36'>
+      <div className='relative z-10 flex w-full max-w-302 flex-col items-start justify-between px-6 pt-24 md:flex-row md:items-start md:pt-36'>
         {/* KIRI: NAMA */}
-        <div className='z-20 order-2 mt-8 text-left md:order-1 md:mt-0 md:text-left'>
-          <h1 className='text-5xl leading-tight font-bold sm:text-6xl md:text-8xl'>
+        <div className='z-20 order-2 mt-[-60] text-left md:order-1 md:mt-0 md:text-left'>
+          <h1 className='text-5xl leading-tight font-bold md:text-8xl'>
             EDWIN <br /> ANDERSON
           </h1>
         </div>
@@ -57,22 +57,9 @@ export default function Hero() {
         {/* TENGAH: HERO IMAGE */}
         <div className='relative order-1 self-center md:absolute md:inset-0 md:order-2 md:flex md:items-center md:justify-center'>
           {/* TEKS BESAR DI BELAKANG HERO */}
-          <div
-            className='absolute hidden uppercase select-none md:block'
-            style={{
-              top: '-20%',
-              fontFamily: 'Raleway, sans-serif',
-              fontWeight: 700,
-              fontSize: '142px',
-              lineHeight: '179.31px',
-              letterSpacing: '-5%',
-              color: 'rgba(255,255,255,0.08)',
-              zIndex: 0,
-            }}
-          >
-            PORTFOLIO
+          <div className='absolute mt-[-30] justify-center text-center text-[64px] font-bold text-[#ffffff14] select-none md:mt-[-550] md:text-center md:text-[120px]'>
+            PORTOFOLIO
           </div>
-
           {/* HERO IMAGE */}
           <div
             className='relative z-10 overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.6)]'
@@ -101,6 +88,23 @@ export default function Hero() {
                 'radial-gradient(circle, rgba(142,66,151,0.4) 0%, transparent 70%)',
             }}
           />
+          {/* --- MICRO IMAGES (inline style positioning) ================= */}
+          <div>
+            <Image
+              src='/images/cross-star.png'
+              alt='Cross Star Accent'
+              width={126}
+              height={126}
+              className='absolute z-30 mt-[-500] ml-[280] h-[126px] w-[126px] md:mt-[-250] md:ml-[-100]'
+            />
+            <Image
+              src='/images/circle-text.png'
+              alt='Circle Text Accent'
+              width={120}
+              height={120}
+              className='absolute z-30 mt-[-50] ml-[300] h-[120px] w-[120px] md:mt-[150] md:ml-[-70]'
+            />
+          </div>
         </div>
 
         {/* KANAN: ABOUT + SOSIAL */}
@@ -132,30 +136,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* --- MICRO IMAGES (inline style positioning) ================= */}
-      <Image
-        src='/images/cross-star.png'
-        alt='Cross Star Accent'
-        width={126}
-        height={126}
-        className='absolute z-9999 h-[126px] w-[126px]'
-        style={{
-          top: '35%',
-          right: '32%',
-        }}
-      />
-      <Image
-        src='/images/circle-text.png'
-        alt='Circle Text Accent'
-        width={120}
-        height={120}
-        className='absolute z-9999 h-[120px] w-[120px]'
-        style={{
-          bottom: '22%',
-          right: '32%',
-        }}
-      />
     </section>
   );
 }

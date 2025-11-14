@@ -2,11 +2,12 @@
 
 import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, Music2 } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
     <section className='relative flex h-screen flex-col items-center justify-center overflow-hidden bg-black text-white'>
-      {/* ================= BACKGROUND ================= */}
+      {/* BACKGROUND  */}
       <div className='absolute inset-0'>
         <div
           className='absolute inset-0 bg-cover bg-center'
@@ -45,21 +46,40 @@ export default function Hero() {
         <div className='absolute inset-0 bg-[linear-gradient(to_top,black_0%,#2E1760_40%,transparent_100%)]' />
       </div>
 
-      {/* ================= CONTENT ================= */}
+      {/* CONTENT  */}
       <div className='relative z-10 flex w-full max-w-302 flex-col items-start justify-between px-6 pt-24 md:flex-row md:items-start md:pt-36'>
         {/* KIRI: NAMA */}
-        <div className='z-20 order-2 mt-[-60] text-left md:order-1 md:mt-0 md:text-left'>
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1 }}
+          className='z-20 order-2 mt-[-60] text-left md:order-1 md:mt-0 md:text-left'
+        >
           <h1 className='text-5xl leading-tight font-bold md:text-8xl'>
             EDWIN <br /> ANDERSON
           </h1>
-        </div>
+        </motion.div>
 
         {/* TENGAH: HERO IMAGE */}
-        <div className='relative order-1 self-center md:absolute md:inset-0 md:order-2 md:flex md:items-center md:justify-center'>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
+          className='relative order-1 self-center md:absolute md:inset-0 md:order-2 md:flex md:items-center md:justify-center'
+        >
           {/* TEKS BESAR DI BELAKANG HERO */}
-          <div className='absolute mt-[-30] justify-center text-center text-[64px] font-bold text-[#ffffff14] select-none md:mt-[-550] md:text-center md:text-[120px]'>
+          <motion.div
+            initial={{ opacity: 0, scale: 1.2 }}
+            whileInView={{ opacity: 0.08, scale: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1.2 }}
+            className='absolute mt-[-30] justify-center text-center text-[64px] font-bold text-[#ffffff14] select-none md:mt-[-550] md:text-center md:text-[120px]'
+          >
             PORTOFOLIO
-          </div>
+          </motion.div>
+
           {/* HERO IMAGE */}
           <div
             className='relative z-10 overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.6)]'
@@ -80,7 +100,11 @@ export default function Hero() {
           </div>
 
           {/* Efek blur glowing */}
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1 }}
             className='absolute inset-0 -z-10 blur-3xl'
             style={{
               borderRadius: '1126470.63px',
@@ -88,8 +112,14 @@ export default function Hero() {
                 'radial-gradient(circle, rgba(142,66,151,0.4) 0%, transparent 70%)',
             }}
           />
-          {/* --- MICRO IMAGES (inline style positioning) ================= */}
-          <div>
+
+          {/* MICRO IMAGES */}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1, staggerChildren: 0.2 }}
+          >
             <Image
               src='/images/cross-star.png'
               alt='Cross Star Accent'
@@ -104,20 +134,37 @@ export default function Hero() {
               height={120}
               className='absolute z-30 mt-[-50] ml-[300] h-[120px] w-[120px] md:mt-[150] md:ml-[-70]'
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* KANAN: ABOUT + SOSIAL */}
-        <div className='z-20 order-3 mt-8 max-w-80 space-y-6 text-left md:mt-0 md:ml-auto md:text-left'>
-          <div>
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1 }}
+          className='z-20 order-3 mt-8 max-w-80 space-y-6 text-left md:mt-0 md:ml-auto md:text-left'
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className='mb-2 text-xl font-semibold'>About me</h2>
             <p className='text-sm leading-relaxed text-gray-200 md:text-base'>
               Passionate about frontend development, I focus on crafting digital
               products.
             </p>
-          </div>
+          </motion.div>
 
-          <div className='flex justify-start gap-4 md:justify-start'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className='flex justify-start gap-4 md:justify-start'
+          >
             {[
               { icon: Facebook, label: 'Facebook' },
               { icon: Instagram, label: 'Instagram' },
@@ -133,8 +180,8 @@ export default function Hero() {
                 <Icon size={18} color='white' />
               </a>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

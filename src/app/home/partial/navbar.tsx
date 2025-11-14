@@ -41,13 +41,15 @@ const Navbar = () => {
     >
       <div className='flex-between custom-container h-16 md:h-21'>
         {/* LOGO DESKTOP */}
-        <Image
-          src='/images/logo.png'
-          alt='logo'
-          width={158}
-          height={56}
-          className='max-md:h-8 max-md:w-35.25'
-        />
+        <Link href='#home'>
+          <Image
+            src='/images/logo.png'
+            alt='logo'
+            width={158}
+            height={56}
+            className='max-md:h-8 max-md:w-35.25'
+          />
+        </Link>
 
         {/* NAVIGATION DESKTOP */}
         <nav className='hidden lg:block'>
@@ -62,7 +64,10 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <Button asChild className='hidden bg-white text-black lg:flex'>
+        <Button
+          asChild
+          className='hover:bg-primary-200 hidden bg-white text-black hover:text-white lg:flex'
+        >
           <Link href='#contact'>Get Started</Link>
         </Button>
 
@@ -115,7 +120,10 @@ const Navbar = () => {
             </nav>
 
             {/* CTA BUTTON */}
-            <Button asChild className='mt-6 w-full bg-white text-black'>
+            <Button
+              asChild
+              className='hover:bg-primary-200 mt-6 w-full bg-white text-black hover:text-white'
+            >
               <SheetClose asChild>
                 <Link href='#contact'>Get Started</Link>
               </SheetClose>
